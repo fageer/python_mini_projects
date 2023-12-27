@@ -101,7 +101,7 @@ Hello Mr.{name}🙏. What Would You Like To Do:
             print(menu)
 
             try:
-            
+                
                 choice = int(input("Enter the number of your choice: "))
 
                 if choice == 1:
@@ -118,11 +118,11 @@ Hello Mr.{name}🙏. What Would You Like To Do:
                     s1.remove_student(student_name)
                 elif choice == 6:
                     exit()
-                else:
-                    print("Invalid choice! . Please enter a number between 1 and 5.")
+
 
             except ValueError:
                 print("Invalid input !. Please enter a valid number.")
+
 
             done = input("Do you want to go to the home page? ").lower().strip()
 
