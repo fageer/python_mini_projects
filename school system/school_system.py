@@ -1,7 +1,7 @@
 import sqlite3
 
 
-conn = sqlite3.connect("school system/student.db")
+conn = sqlite3.connect("school system/students.db")
 cursor = conn.cursor()
 
 
@@ -40,7 +40,8 @@ class Student:
     def show_all_students(self):
         cursor.execute("SELECT * FROM students")
         result = cursor.fetchall()
-        
+        if not result:
+            print("Sorry You Don't Have Any Student.")
         for key, row in enumerate(result):
             print(f"Student{key+1} Name: {row[0]}, Phone: {row[1]}, Course: {row[2]}.")
     
@@ -93,6 +94,7 @@ Hello Mr.{name}🙏. What Would You Like To Do:
 3- Show the number of students.
 4- Show a specific student.
 5- Delete a student.
+6- Exit.
             """
 
             print("=" * 10, "🏫 Welcome to Fager School 🏫", "=" * 10)
@@ -114,6 +116,8 @@ Hello Mr.{name}🙏. What Would You Like To Do:
                 elif choice == 5:
                     student_name = input("Enter the student name you want to delete: ").strip()
                     s1.remove_student(student_name)
+                elif choice == 6:
+                    exit()
                 else:
                     print("Invalid choice! . Please enter a number between 1 and 5.")
 
